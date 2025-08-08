@@ -1,10 +1,14 @@
+from textblob import TextBlob
+
 def analyze_sentiment(data):
-    # Simple scoring placeholder
     results = []
     for item in data:
-        score = 0.2  # Replace with real NLP later
+        analysis = TextBlob(item["text"])
+        score = round(analysis.sentiment.polarity, 3)  # -1.0 to +1.0
         results.append({
             "pair": item["pair"],
+            "source": item["source"],
+            "text": item["text"],
             "sentiment": score,
             "timestamp": item["timestamp"]
         })
