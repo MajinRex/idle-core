@@ -1,0 +1,1 @@
+python3 -m venv .venv && source .venv/bin/activate && pip install tweepy textblob && python -m textblob.download_corpora
